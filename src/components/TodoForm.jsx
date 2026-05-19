@@ -6,15 +6,15 @@ export default function TodoForm({ addTodo, search, setSearch }) {
 
   function handleSubmit(e) {
     e.preventDefault()
-    if (task.trim() === '') return    // don't add empty task
+    if (task.trim() === '') return
     addTodo(task)
-    setTask('')                       // clear input after adding
+    setTask('')
   }
 
   return (
     <div className="form-section">
 
-      {/* Add Todo */}
+  
       <form onSubmit={handleSubmit} className="todo-form">
         <input
           type="text"
@@ -25,7 +25,7 @@ export default function TodoForm({ addTodo, search, setSearch }) {
         <button type="submit">Add Task</button>
       </form>
 
-      {/* Search Todo */}
+  
       <input
         type="text"
         placeholder="Search tasks..."

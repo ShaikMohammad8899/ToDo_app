@@ -119,53 +119,6 @@
 //   )
 // }
 
-// export default App
-
-
-// import React, { useState, useEffect } from 'react'
-// import Navbar from './components/Navbar'
-// import TodoForm from './components/TodoForm'
-// import TodoList from './components/TodoList'
-// import './App.css'
-
-// export default function App() {
-
-//   const [todos, setTodos] = useState([])
-//   const [search, setSearch] = useState('')
-
-
-//   // Question 2 - Add Todo
-//   function addTodo(task) {
-//     const newTodo = {
-//       id: Date.now(),
-//       title: task,
-//       completed: false
-//     }
-//     setTodos([newTodo, ...todos])
-//   }
-
-//   // Question 5 - Delete Todo
-//   function deleteTodo(id) {
-//     setTodos(todos.filter((todo) => todo.id !== id))
-//   }
-
-//   // Question 4 - Filter Todos
-//   const filteredTodos = todos.filter((todo) =>
-//     todo.title.toLowerCase().includes(search.toLowerCase())
-//   )
-
-//   return (
-//     <div>
-//       <Navbar />
-//       <div className="main">
-//         <TodoForm addTodo={addTodo} search={search} setSearch={setSearch} />
-//         <TodoList todos={filteredTodos} deleteTodo={deleteTodo} />
-//       </div>
-//     </div>
-//   )
-// }
-
-
 
 import React, { useState, useEffect } from 'react'
 import Navbar from './components/Navbar'
@@ -182,12 +135,10 @@ export default function App() {
 
   const [search, setSearch] = useState('')
 
-  // Save to localStorage whenever todos change
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos))
   }, [todos])
 
-  // Add Todo
   function addTodo(task) {
     const newTodo = {
       id: Date.now(),
@@ -197,12 +148,10 @@ export default function App() {
     setTodos([newTodo, ...todos])
   }
 
-  // Delete Todo
   function deleteTodo(id) {
     setTodos(todos.filter((todo) => todo.id !== id))
   }
 
-  // Filter Todos
   const filteredTodos = todos.filter((todo) =>
     todo.title.toLowerCase().includes(search.toLowerCase())
   )
